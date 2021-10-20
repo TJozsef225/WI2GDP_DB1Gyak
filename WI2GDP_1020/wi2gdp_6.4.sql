@@ -1,5 +1,4 @@
-CREATE TABLE termekek (tkod INT PRIMARY KEY, nev VARCHAR2(50) NOT NULL, ear INT
-CHECK (EAR > 0), kategoria CHAR(20));
+CREATE TABLE termekek (tkod INT PRIMARY KEY, nev VARCHAR(50) NOT NULL, ear INT CHECK (EAR > 0), kategoria CHAR(20));
 
 INSERT INTO termekek VALUES(1,'lapát',2000,'K1');
 INSERT INTO termekek VALUES(2,'seprű',4000,'K1');
