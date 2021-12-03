@@ -1,0 +1,80 @@
+CREATE TABLE Vasarlo
+(
+  felhasznalonev varchar(25) NOT NULL,
+  e-mail varchar(50) NOT NULL,
+  vasarlo_id number,
+  irszam number(4),
+  telepules varchar(40),
+  utca varchar(80),
+  szulDatum DATE,
+  PRIMARY KEY (vasarlo_id)
+);
+
+CREATE TABLE Termekek
+(
+  termek_id number,
+  nev varchar(40),
+  ar number,
+  kategoria varchar(40),
+  PRIMARY KEY (termek_id)
+);
+
+CREATE TABLE Csomagszallito
+(
+  szallito_id number,
+  ceg varchar(10),
+  nev varchar(30),
+  gyarto varchar(10),
+  rendszam varchar(7),
+  tipus varchar(20),
+  PRIMARY KEY (szallito_id)
+);
+
+CREATE TABLE Webshop
+(
+  nev varchar(20),
+  domain varchar(30),
+  elhelyezkedesi_cim varchar(80),
+  PRIMARY KEY (domain)
+);
+
+CREATE TABLE Rendelesek
+(
+  rendeles_id number,
+  vegosszeg number,
+  sz_irszam number(4),
+  sz_telepules varchar(40),
+  sz_utca varchar(80),
+  megjegyzes varchar(1000),
+  datum date,
+  domain varchar(30),
+  szallito_id number,
+  vasarlo_id number,
+  PRIMARY KEY (rendeles_id),
+  FOREIGN KEY (domain) REFERENCES Webshop(domain),
+  FOREIGN KEY (szallito_id) REFERENCES Csomagszallito(szallito_id),
+  FOREIGN KEY (vasarlo_id) REFERENCES Vasarlo(vasarlo_id)
+);
+
+CREATE TABLE termekek_shop
+(
+  darabszam number,
+  termek_id number,
+  domain varchar(30),
+  FOREIGN KEY (termek_id) REFERENCES Termekek(termek_id),
+  FOREIGN KEY (domain) REFERENCES Webshop(domain)
+);
+
+CREATE TABLE Vasarlo_telefonszam
+(
+  telefonszam varchar(15),
+  vasarlo_id number,
+  FOREIGN KEY (vasarlo_id) REFERENCES Vasarlo(vasarlo_id)
+);
+
+CREATE TABLE Webshop_telefonszam
+(
+  telefonszam varchar(15),
+  domain varchar(30),
+  FOREIGN KEY (domain) REFERENCES Webshop(domain)
+);

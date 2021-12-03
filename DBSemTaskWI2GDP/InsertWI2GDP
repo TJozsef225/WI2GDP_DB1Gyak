@@ -1,0 +1,52 @@
+INSERT INTO Vasarlo VALUES('csikocska30', 'csikocska30@gmail.com',1, 3530, 'Miskolc', 'Tátra utca 3.', '12.13.1996');
+INSERT INTO Vasarlo VALUES('zambokiraly', 'jimmy3555@gmail.com',2, 5624, 'Doboz', 'Arany János utca 24.', '06.15.2000');
+INSERT INTO Vasarlo VALUES('BIOhunter25', 'bio.hunter25@c2.hu',3, 5520, 'Szeghalom', 'Petőfi Sándor utca 50.', '04.10.1998');
+INSERT INTO Vasarlo VALUES('SuperDrBubo', 'bubo.doktor30@gmail.com',4, 1061, 'Budapest', 'Jókai utca 15.', '12.03.1999');
+INSERT INTO Vasarlo VALUES('Pet5050', 'peter.hajdu5050@hotmail.com',5, 9400, 'Sopron', 'Vörösbegy utca 65.', '04.28.2001');
+
+INSERT INTO Termekek VALUES (1,'porszívó',27990,'haztartasi');
+INSERT INTO Termekek VALUES (2,'televízió',52900,'szorakozas');
+INSERT INTO Termekek VALUES (3,'tornalabda',690,'sport');
+INSERT INTO Termekek VALUES (4,'páraelszívó',31290,'haztartasi');
+INSERT INTO Termekek VALUES (5,'hangprojektor',34990,'szorakozas');
+INSERT INTO Termekek VALUES (6,'DVD lejátszó',20090,'szorakozas');
+INSERT INTO Termekek VALUES (7,'akkus_fúró',32490,'barkacs');
+INSERT INTO Termekek VALUES (8,'tricikli',24500,'kulteri');
+
+INSERT INTO Csomagszallito VALUES(1, 'GLS', 'Béla', 'Fiat', 'EVY-386', 'Ducato');
+INSERT INTO Csomagszallito VALUES(2, 'GLS', 'Viktor', 'Fiat', 'MDO-130', 'Ducato');
+INSERT INTO Csomagszallito VALUES(3, 'DPD', 'Gergely', 'Citroen', 'PLA-075', 'Jumper');
+INSERT INTO Csomagszallito VALUES(4, 'MPL', 'András', 'Volkswagen', 'NLE-327', 'Crafter');
+INSERT INTO Csomagszallito VALUES(5, 'GLS', 'Endre', 'Opel', 'KQE-247', 'Vivaro');
+INSERT INTO Csomagszallito VALUES(6, 'MPL', 'Dénes', 'Fiat', 'NDC-973', 'Ducato');
+
+INSERT INTO Webshop VALUES(’eMAG’,'www.emag.hu', 'Székesfehérvár');
+INSERT INTO Webshop VALUES(’Alza’,'www.alza.hu', 'Budapest');
+INSERT INTO Webshop VALUES(’Auchan’,'www.auchan.hu', 'Miskolc');
+
+INSERT INTO Webshop_telefonszam VALUES('+36-1-123-4567', 'www.emag.hu');
+INSERT INTO Webshop_telefonszam VALUES('+36-1-987-6543', 'www.alza.hu');
+INSERT INTO Webshop_telefonszam VALUES('+36-1-222-2222', 'www.auchan.hu');
+
+INSERT INTO termekek_shop VALUES('www.emag.hu', 1, 12);
+INSERT INTO termekek_shop VALUES('www.alza.hu', 2, 9);
+INSERT INTO termekek_shop VALUES('www.auchan.hu', 3, 26);
+INSERT INTO termekek_shop VALUES('www.emag.hu', 4, 10);
+INSERT INTO termekek_shop VALUES('www.alza.hu', 5, 4);
+INSERT INTO termekek_shop VALUES('www.auchan.hu', 6, 11);
+INSERT INTO termekek_shop VALUES('www.auchan.hu', 7, 8);
+INSERT INTO termekek_shop VALUES('www.emag.hu', 8, 2);
+
+INSERT INTO Vasarlo_telefonszam VALUES('+36-20-1234567',1);
+INSERT INTO Vasarlo_telefonszam VALUES('+36-70-7654321',2);
+INSERT INTO Vasarlo_telefonszam VALUES('+36-20-1233210',3);
+INSERT INTO Vasarlo_telefonszam VALUES('+36-30-5656567',4);
+INSERT INTO Vasarlo_telefonszam VALUES('+36-30-1111111',5);
+
+INSERT INTO Rendelesek VALUES(1, 9990, 3530, 'Miskolc', 'Tátra utca 3.', 'A kaputelefon nem működik. Kapukód: xxxx', '11/20/2021', 'www.alza.hu', 2, 1);
+INSERT INTO Rendelesek VALUES(2, 31290, 1061, 'Budapest', 'Jókai utca 15.', null, '11/19/2021', 'www.emag.hu', 1, 4);
+INSERT INTO Rendelesek VALUES(3, 20090, 5624, 'Doboz', 'Arany János utca 24.', 'Hétfőn a szomszéd tudja átvenni', '10/25/2021', 'www.auchan.hu', 5, 2);
+INSERT INTO Rendelesek VALUES(4, 2070, 3881, 'Abaújszántó', 'Varga utca 44.', null, '11/25/2021',  'www.emag.hu', 1, 5);
+INSERT INTO Rendelesek VALUES(5, 32490, 3597, 'Hejőkeresztúr', 'Petőfi Sándor utca 67.', null, '11/24/2021', 'www.auchan.hu', 4, 3);
+INSERT INTO Rendelesek VALUES(6, 52900, 9400, 'Sopron', 'Vörösbegy utca 65.', null, '11/25/2021', 'www.alza.hu', 6, 5);
+INSERT INTO Rendelesek VALUES(7, 27990, 5520, 'Szeghalom', 'Petőfi Sándor utca 50.', 'Délelőtt munkahelyemen vagyok, 2-kor vagyok elérhető.', '11/22/2021', 'www.emag.hu', 2, 3);

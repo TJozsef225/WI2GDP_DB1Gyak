@@ -1,0 +1,43 @@
+SELECT nev FROM Termekek
+WHERE kategoria = 'haztartasi' AND ar < 30000;
+
+SELECT kategoria, count(kategoria)  "TERMÉKEK SZÁMA"
+FROM Termekek
+GROUP BY kategoria;
+
+SELECT felhasznalonev FROM Vasarlo
+INNER JOIN Rendelesek ON Vasarlo.vasarlo_id = Rendelesek.vasarlo_id
+WHERE Rendelesek.vegosszeg > 30000;
+
+SELECT felhasznalonev FROM Vasarlo
+JOIN Rendelesek ON Vasarlo.vasarlo_id = Rendelesek.vasarlo_id
+WHERE Rendelesek.megjegyzes IS NOT NULL;
+
+SELECT nev, SUM(termekek_shop.darabszam) "OSSZES DARAB" FROM Webshop
+JOIN termekek_shop ON Webshop.domain = termekek_shop.domain
+GROUP BY nev;
+
+SELECT nev, SUM(termekek_shop.darabszam) "OSSZES DARAB" FROM Webshop
+JOIN termekek_shop ON Webshop.domain = termekek_shop.domain
+GROUP BY nev
+
+SELECT felhasznalonev, floor((sysdate-szulDatum)/365) "KOR"
+FROM Vasarlo
+
+SELECT utca FROM Vasarlo
+JOIN Vasarlo_telefonszam ON Vasarlo.vasarlo_id = Vasarlo_telefonszam.vasarlo_id
+INNER JOIN Rendelesek ON Rendelesek.vasarlo_id = Vasarlo.vasarlo_id
+WHERE Telefonszam LIKE '+36-30%'
+AND Rendelesek.vegosszeg = (SELECT MAX(vegosszeg) FROM Rendelesek);
+
+SELECT irszam, telepules FROM Vasarlo
+JOIN Rendelesek ON Rendelesek.vasarlo_id = Vasarlo.vasarlo_id
+JOIN Csomagszallito ON Rendelesek.szallito_id = Csomagszallito.szallito_id
+WHERE Csomagszallito.ceg = 'GLS'
+AND Rendelesek.vegosszeg = (SELECT MIN(vegosszeg) FROM Rendelesek);
+
+SELECT Webshop.nev, sum(vegosszeg)  FROM Rendelesek
+JOIN Webshop ON Rendelesek.domain = Webshop.domain
+GROUP BY nev
+HAVING sum(vegosszeg) >= 50000;
+
